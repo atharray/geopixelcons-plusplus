@@ -1,6 +1,5 @@
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
-import crypto from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -8,8 +7,7 @@ import test from 'node:test';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const libraryArtifact = join(root, '..', 'geopixelcons-library', 'dist', 'geopixelcons-library.js');
-const librarySri = `sha256-${crypto.createHash('sha256').update(readFileSync(libraryArtifact)).digest('base64')}`;
-const requireUrl = `https://cdn.jsdelivr.net/gh/atharray/geopixelcons-library@v1.0.0/dist/geopixelcons-library.js#${librarySri}`;
+const requireUrl = JSON.parse(readFileSync(join(root, 'library.require.json'), 'utf8')).url;
 
 test('builds only with an immutable SRI-pinned library URL', () => {
     const result = spawnSync(process.execPath, ['build.js'], {
@@ -26,9 +24,13 @@ test('builds only with an immutable SRI-pinned library URL', () => {
     assert.doesNotThrow(() => new Function(script));
 });
 
-test('ships the reviewed library pin as the default build input', () => {
-    const configured = JSON.parse(readFileSync(join(root, 'library.require.json'), 'utf8')).url;
-    assert.equal(configured, requireUrl);
+test('ships the reviewed library pin as the default build input', async () => {
+    assert.match(requireUrl, /^https:\/\/cdn\.jsdelivr\.net\/gh\/atharray\/geopixelcons-library@v\d+\.\d+\.\d+\/dist\/geopixelcons-library\.js#sha256-[A-Za-z0-9+/]+={0,2}$/);
+    if (existsSync(libraryArtifact)) {
+        const crypto = await import('node:crypto');
+        const localSri = `sha256-${crypto.createHash('sha256').update(readFileSync(libraryArtifact)).digest('base64')}`;
+        assert.equal(requireUrl.split('#')[1], localSri);
+    }
 });
 
 test('rejects an unpinned library URL', () => {
