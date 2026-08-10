@@ -19,13 +19,15 @@ is public and its **downloaded** jsDelivr bytes match the SRI value.
 1. Work on an internal `feature/<name>` branch and open a PR to protected
    `main`.
 2. The PR workflow creates an immutable test tag, for example
-   `v2.0.0-feature-mobile-shell-1`.
-3. Merge the reviewed PR. For the first `v2.0.0` stable release, manually run
-   **Bootstrap stable release** from GitHub Actions. It tags but does not change
-   `main` and attaches the tiny userscript as a GitHub Release asset.
-4. Afterwards Release Please opens a separate release PR from merged `feat:`
-   or `fix:` work. Merging that reviewed PR creates future stable tags and
-   attaches the rebuilt userscript asset.
+   `v2.0.0-feature-mobile-shell-1`. The agent gives the user the generated
+   candidate userscript for temporary local Tampermonkey testing.
+3. When the user reports a successful test and explicitly authorizes release,
+   the agent merges the PR through normal branch protection. For the first
+   `v2.0.0` stable release, it then runs **Bootstrap stable release** from
+   GitHub Actions.
+4. Afterwards Release Please opens a release PR from merged `feat:` or `fix:`
+   work. With the same release authorization, the agent verifies and merges it
+   to create future stable tags and rebuilt userscript assets.
 5. Upload only a stable release asset to Greasyfork—never a preview tag.
 
 The library must be released and CDN-verified before this shell is released.

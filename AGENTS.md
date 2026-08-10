@@ -23,20 +23,25 @@ The build reads `library.require.json` by default and writes the small
 ## AI Git agreement
 
 AI may inspect, test, create commits, push, and open pull requests, but only
-from an internal branch named `feature/<short-description>`.
+from an internal branch named `feature/<short-description>`. After the user
+has tested the candidate in Tampermonkey and explicitly says the change is
+approved for release in the current conversation, AI may merge its feature PR
+and the resulting Release Please PR through the normal protected branch flow.
 
-- Never commit, merge, rebase, force-push, or push directly to `main`.
+- Never commit, rebase, force-push, or push directly to `main`.
 - Never delete or retarget tags; preview tags and stable tags are immutable.
-- Never bypass a required PR review or protection rule.
+- Never self-approve a required GitHub review or bypass a protection rule.
 - Use conventional commits: `feat:` for a minor release, `fix:` for a patch
   release, and `chore:` or `docs:` for non-release work.
 - Prefer squash merges so Release Please receives one intentional conventional
   commit message.
 - Never add secrets, private tokens, or local credentials to the repository.
 
-Preview tags are test candidates, not Greasyfork releases. Stable tags are
-created only by a human-reviewed Release Please PR, except for the explicitly
-manual one-time `v2.0.0` bootstrap workflow.
+Preview tags are test candidates, not Greasyfork releases. A local
+Tampermonkey test is the user's approval gate. Stable tags are created after
+explicit live-test approval by merging a verified Release Please PR, except
+for the explicitly manual one-time `v2.0.0` bootstrap workflow. Greasyfork
+upload is always manual.
 
 ## Preview tag rule
 
@@ -52,6 +57,14 @@ v<next-version>-<feature-branch-slug>-<incrementing-number>
 The counter starts at `1` and increases across every update of that feature
 branch, even if the selected minor/patch base changes. The first PR before a
 stable release uses the requested `v2.0.0` baseline.
+
+## Live-test handoff
+
+For a shell-only change, give the user the generated candidate userscript to
+paste temporarily into Tampermonkey. For a library change, first give them the
+immutable preview library `@require` URL with its SRI suffix. The user tests,
+restores their local stable script, and reports either failure details or
+explicit release approval. Never publish a preview to Greasyfork.
 
 ## Cross-repository release order
 
