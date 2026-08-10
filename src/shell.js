@@ -2,7 +2,9 @@
     'use strict';
 
     const VERSION = '__VERSION__';
-    const library = globalThis.GeoPixelconsLibrary;
+    const library = typeof GeoPixelconsLibrary !== 'undefined'
+        ? GeoPixelconsLibrary
+        : (typeof globalThis !== 'undefined' ? globalThis.GeoPixelconsLibrary : null);
 
     function reportFailure(error) {
         const message = '[GeoPixelcons++] The verified feature library did not load. GeoPixels remains available; reinstall a release whose library tag is online.';

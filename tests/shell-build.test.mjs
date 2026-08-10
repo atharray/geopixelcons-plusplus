@@ -21,11 +21,12 @@ test('builds only with an immutable SRI-pinned library URL', () => {
     const script = readFileSync(output, 'utf8');
     assert.match(script, new RegExp(`@require\\s+${requireUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`));
     assert.match(script, /GeoPixelconsLibrary\.boot/);
+    assert.match(script, /typeof GeoPixelconsLibrary/);
     assert.doesNotThrow(() => new Function(script));
 });
 
 test('ships the reviewed library pin as the default build input', async () => {
-    assert.match(requireUrl, /^https:\/\/cdn\.jsdelivr\.net\/gh\/atharray\/geopixelcons-library@v\d+\.\d+\.\d+\/dist\/geopixelcons-library\.js#sha256-[A-Za-z0-9+/]+={0,2}$/);
+    assert.match(requireUrl, /^https:\/\/cdn\.jsdelivr\.net\/gh\/atharray\/geopixelcons-library@v\d+\.\d+\.\d+(?:-[A-Za-z0-9-]+)?\/dist\/geopixelcons-library\.js#sha256-[A-Za-z0-9+/]+={0,2}$/);
     if (existsSync(libraryArtifact)) {
         const crypto = await import('node:crypto');
         const localSri = `sha256-${crypto.createHash('sha256').update(readFileSync(libraryArtifact)).digest('base64')}`;
