@@ -16,7 +16,7 @@ test('builds only with an immutable SRI-pinned library URL', () => {
         encoding: 'utf8',
     });
     assert.equal(result.status, 0, result.stderr);
-    const output = join(root, 'dist', '2.0.0.user.js');
+    const output = join(root, 'dist', 'user.js');
     assert.equal(existsSync(output), true);
     const script = readFileSync(output, 'utf8');
     assert.match(script, new RegExp(`@require\\s+${requireUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`));
