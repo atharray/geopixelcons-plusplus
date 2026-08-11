@@ -6,7 +6,7 @@
 // @author       ariapokoteng, Manako, D.V.H., JainIlluverii
 // @match        *://geopixels.net/*
 // @match        *://*.geopixels.net/*
-// @require      https://cdn.jsdelivr.net/gh/atharray/geopixelcons-library@v1.0.1/dist/geopixelcons-library.js#sha256-1RvuCLCtyHgWLk+Lr9x703FLeBLmdhsQdVcB0bbXL3U=
+// @require      https://cdn.jsdelivr.net/gh/atharray/geopixelcons-library@v2.0.0/dist/geopixelcons-library.js#sha256-xU6P4zz22eS0+C0biVytvS7v814NReUQQpO/IUtmFjg=
 // @grant        GM_xmlhttpRequest
 // @grant        GM_setValue
 // @grant        GM_getValue
