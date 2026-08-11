@@ -21,7 +21,7 @@ const header = fs.readFileSync(path.join(ROOT, 'src', 'header.template.js'), 'ut
 const shell = fs.readFileSync(path.join(ROOT, 'src', 'shell.js'), 'utf8')
     .replaceAll('__VERSION__', PACKAGE.version);
 const output = `${header.trimEnd()}\n\n${shell.trimEnd()}\n`;
-const outputPath = path.join(ROOT, 'dist', `${PACKAGE.version}.user.js`);
+const outputPath = path.join(ROOT, 'dist', 'user.js');
 
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 fs.writeFileSync(outputPath, output, 'utf8');

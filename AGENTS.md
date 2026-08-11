@@ -18,7 +18,10 @@ npm run verify
 ```
 
 The build reads `library.require.json` by default and writes the small
-`dist/<version>.user.js` artifact. Keep JavaScript UTF-8 without a BOM.
+`dist/user.js` artifact -- a fixed filename, since the version is already
+recorded inside the file itself (`// @version` and `VERSION`), not the
+filename; each build overwrites the same file rather than piling up a new
+versioned one. Keep JavaScript UTF-8 without a BOM.
 
 ## AI Git agreement
 

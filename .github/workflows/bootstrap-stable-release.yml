@@ -31,4 +31,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git tag -a "v${version}" -m "GeoPixelcons++ v${version}"
           git push origin "v${version}"
-          gh release create "v${version}" "dist/${version}.user.js" --title "GeoPixelcons++ v${version}" --generate-notes
+          gh release create "v${version}" "dist/user.js" --title "GeoPixelcons++ v${version}" --generate-notes
