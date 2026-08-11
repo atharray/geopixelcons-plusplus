@@ -7,8 +7,10 @@ const ROOT = __dirname;
 const PACKAGE = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
 const libraryRequire = JSON.parse(fs.readFileSync(path.join(ROOT, 'library.require.json'), 'utf8'));
 const requireUrl = process.env.GPC_LIBRARY_REQUIRE_URL || libraryRequire.url;
+const libraryTag = 'v\\d+\\.\\d+\\.\\d+(?:-[A-Za-z0-9-]+)?';
+const requirePattern = new RegExp(`^https://cdn\\.jsdelivr\\.net/gh/atharray/geopixelcons-library@${libraryTag}/dist/geopixelcons-library\\.js#sha256-[A-Za-z0-9+/]+={0,2}$`);
 
-if (!requireUrl || !/^https:\/\/cdn\.jsdelivr\.net\/gh\/atharray\/geopixelcons-library@v\d+\.\d+\.\d+\/dist\/geopixelcons-library\.js#sha256-[A-Za-z0-9+/]+={0,2}$/.test(requireUrl)) {
+if (!requireUrl || !requirePattern.test(requireUrl)) {
     console.error('ERROR: GPC_LIBRARY_REQUIRE_URL must be an exact jsDelivr tag URL with a sha256 SRI suffix.');
     process.exit(1);
 }

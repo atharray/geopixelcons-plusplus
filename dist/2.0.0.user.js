@@ -6,7 +6,7 @@
 // @author       ariapokoteng, Manako, D.V.H., JainIlluverii
 // @match        *://geopixels.net/*
 // @match        *://*.geopixels.net/*
-// @require      https://cdn.jsdelivr.net/gh/atharray/geopixelcons-library@v1.0.0/dist/geopixelcons-library.js#sha256-seFUu4+dVuMItMgWVum9iK6sobGT/7W0wvcGmOTNCVY=
+// @require      https://cdn.jsdelivr.net/gh/atharray/geopixelcons-library@v1.0.1/dist/geopixelcons-library.js#sha256-1RvuCLCtyHgWLk+Lr9x703FLeBLmdhsQdVcB0bbXL3U=
 // @grant        GM_xmlhttpRequest
 // @grant        GM_setValue
 // @grant        GM_getValue
@@ -22,7 +22,9 @@
     'use strict';
 
     const VERSION = '2.0.0';
-    const library = globalThis.GeoPixelconsLibrary;
+    const library = typeof GeoPixelconsLibrary !== 'undefined'
+        ? GeoPixelconsLibrary
+        : (typeof globalThis !== 'undefined' ? globalThis.GeoPixelconsLibrary : null);
 
     function reportFailure(error) {
         const message = '[GeoPixelcons++] The verified feature library did not load. GeoPixels remains available; reinstall a release whose library tag is online.';
