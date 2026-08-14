@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/atharray/geopixelcons-plusplus/compare/v2.0.1...v2.0.2) (2026-08-14)
+
+
+### Bug Fixes
+
+* **ci:** upload fixed userscript asset ([#10](https://github.com/atharray/geopixelcons-plusplus/issues/10)) ([93efbd5](https://github.com/atharray/geopixelcons-plusplus/commit/93efbd5a9c1d16881fd0405166435102da88d0c7))
+
 ## [2.0.1](https://github.com/atharray/geopixelcons-plusplus/compare/v2.0.0...v2.0.1) (2026-08-14)
 
 
