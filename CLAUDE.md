@@ -15,3 +15,8 @@ Please PR through normal branch protection. Never write directly to `main`,
 force-push, self-approve a required review, or change/delete tags. Run `npm run
 verify` before committing runtime or release changes. Greasyfork upload remains
 a manual user action.
+
+Whenever `library.require.json` changes here in response to a
+`geopixelcons-library` merge, tell the user the resulting `@require` line
+(preview or stable) — see [AGENTS.md](AGENTS.md)'s cross-repository release
+order section.

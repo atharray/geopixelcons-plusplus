@@ -75,3 +75,10 @@ First merge and release `geopixelcons-library`. Verify its public jsDelivr
 artifact's SHA-256 SRI. Then change `library.require.json` in a new shell
 feature branch, run the checks, and release the shell. Never publish a shell
 whose pin is a preview/local tag, a branch, `latest`, or an unhashed URL.
+
+The `geopixelcons-library` repo's own agent guide requires it to proactively
+announce the exact `@require` line after every merge that produces a new tag
+there (preview or stable). When you receive that line and update
+`library.require.json` to it, echo the same information back to the user here
+too — the resulting line, and whether it is the temporary Tampermonkey preview
+or the new stable pin.
