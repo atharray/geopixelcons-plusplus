@@ -1,7 +1,9 @@
 (function bootGeoPixelconsShell() {
     'use strict';
 
+    // x-release-please-start-version
     const VERSION = '__VERSION__';
+    // x-release-please-end
     const library = typeof GeoPixelconsLibrary !== 'undefined'
         ? GeoPixelconsLibrary
         : (typeof globalThis !== 'undefined' ? globalThis.GeoPixelconsLibrary : null);

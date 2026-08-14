@@ -8,6 +8,7 @@ import test from 'node:test';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const libraryArtifact = join(root, '..', 'geopixelcons-library', 'dist', 'geopixelcons-library.js');
 const requireUrl = JSON.parse(readFileSync(join(root, 'library.require.json'), 'utf8')).url;
+const packageVersion = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')).version;
 
 test('builds only with an immutable SRI-pinned library URL', () => {
     const result = spawnSync(process.execPath, ['build.js'], {
@@ -23,6 +24,13 @@ test('builds only with an immutable SRI-pinned library URL', () => {
     assert.match(script, /GeoPixelconsLibrary\.boot/);
     assert.match(script, /typeof GeoPixelconsLibrary/);
     assert.doesNotThrow(() => new Function(script));
+});
+
+test('keeps the tracked userscript artifact version aligned with package.json', () => {
+    const script = readFileSync(join(root, 'dist', 'user.js'), 'utf8');
+    const escapedVersion = packageVersion.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    assert.match(script, new RegExp(`^// @version\\s+${escapedVersion}$`, 'm'));
+    assert.match(script, new RegExp(`const VERSION = '${escapedVersion}';`));
 });
 
 test('ships the reviewed library pin as the default build input', async () => {
