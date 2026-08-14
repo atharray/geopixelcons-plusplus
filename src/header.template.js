@@ -1,7 +1,9 @@
 // ==UserScript==
 // @name         GeoPixelcons++
 // @namespace    http://tampermonkey.net/
+// x-release-please-start-version
 // @version      __VERSION__
+// x-release-please-end
 // @description  Unified GeoPixels enhancement suite - by Pixelcons
 // @author       ariapokoteng, Manako, D.V.H., JainIlluverii
 // @match        *://geopixels.net/*

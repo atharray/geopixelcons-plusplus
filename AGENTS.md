@@ -21,7 +21,10 @@ The build reads `library.require.json` by default and writes the small
 `dist/user.js` artifact -- a fixed filename, since the version is already
 recorded inside the file itself (`// @version` and `VERSION`), not the
 filename; each build overwrites the same file rather than piling up a new
-versioned one. Keep JavaScript UTF-8 without a BOM.
+versioned one. Keep JavaScript UTF-8 without a BOM. The Release Please
+configuration also treats this artifact as a generic extra file, so its
+version markers must stay in the generated output and `package.json` and
+`dist/user.js` must agree before a release PR is merged.
 
 ## AI Git agreement
 

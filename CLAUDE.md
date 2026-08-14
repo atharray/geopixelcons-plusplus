@@ -20,3 +20,7 @@ Whenever `library.require.json` changes here in response to a
 `geopixelcons-library` merge, tell the user the resulting `@require` line
 (preview or stable) — see [AGENTS.md](AGENTS.md)'s cross-repository release
 order section.
+
+The Release Please configuration versions the tracked `dist/user.js` artifact
+through its generic version markers, so keep that artifact aligned with
+`package.json` before merging a release PR.

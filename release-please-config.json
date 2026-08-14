@@ -4,7 +4,13 @@
   "include-component-in-tag": false,
   "packages": {
     ".": {
-      "package-name": "geopixelcons-plusplus"
+      "package-name": "geopixelcons-plusplus",
+      "extra-files": [
+        {
+          "type": "generic",
+          "path": "dist/user.js"
+        }
+      ]
     }
   }
 }
