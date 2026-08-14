@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         GeoPixelcons++
 // @namespace    http://tampermonkey.net/
-// @version      2.0.0
+// @version      2.0.1
 // @description  Unified GeoPixels enhancement suite - by Pixelcons
 // @author       ariapokoteng, Manako, D.V.H., JainIlluverii
 // @match        *://geopixels.net/*
 // @match        *://*.geopixels.net/*
-// @require      https://cdn.jsdelivr.net/gh/atharray/geopixelcons-library@v2.1.0/dist/geopixelcons-library.js#sha256-m13bsbki+X9+b+XLQtzzdoj3WzAXBp/WfrNDA2BPJU0=
+// @require      https://cdn.jsdelivr.net/gh/atharray/geopixelcons-library@v2.2.0/dist/geopixelcons-library.js#sha256-kLKdRMbhrVVePfRejSQGYotyxc0DmSBBH9nTuri5Oik=
 // @grant        GM_xmlhttpRequest
 // @grant        GM_setValue
 // @grant        GM_getValue
@@ -21,7 +21,7 @@
 (function bootGeoPixelconsShell() {
     'use strict';
 
-    const VERSION = '2.0.0';
+    const VERSION = '2.0.1';
     const library = typeof GeoPixelconsLibrary !== 'undefined'
         ? GeoPixelconsLibrary
         : (typeof globalThis !== 'undefined' ? globalThis.GeoPixelconsLibrary : null);
