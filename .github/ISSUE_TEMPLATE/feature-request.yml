@@ -1,0 +1,52 @@
+name: Feature request
+description: Suggest an improvement for GeoPixelcons++
+title: "[Feature Request]: "
+labels:
+  - feature-request
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve GeoPixelcons++! Please describe the player problem first so the proposed solution can be evaluated in context.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What would you like to do, and what makes the current experience difficult or incomplete?
+      placeholder: I want to ... but currently ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed solution
+      description: Describe the behavior or workflow you would like GeoPixelcons++ to support.
+      placeholder: GeoPixelcons++ could ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What workarounds or other approaches have you tried?
+      placeholder: I tried ...
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add screenshots, mockups, links, affected pages, or other details that may help.
+      placeholder: Any other context, screenshots, or examples...
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Submission checklist
+      options:
+        - label: I searched existing issues and did not find a duplicate request.
+          required: true
+        - label: This request is specifically about GeoPixelcons++.
+          required: true
