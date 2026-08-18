@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.6](https://github.com/atharray/geopixelcons-plusplus/compare/v2.0.5...v2.0.6) (2026-08-18)
+
+
+### Bug Fixes
+
+* pin library v2.5.0 ([77b880e](https://github.com/atharray/geopixelcons-plusplus/commit/77b880e0a0e0ae605d9ee3610f2d3e0e7259a59d))
+
 ## [2.0.5](https://github.com/atharray/geopixelcons-plusplus/compare/v2.0.4...v2.0.5) (2026-08-17)
 
 
