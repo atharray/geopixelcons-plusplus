@@ -20,6 +20,8 @@ jobs:
       ready: ${{ steps.check.outputs.ready }}
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          fetch-tags: true
       - id: check
         name: Require the one-time stable baseline tag
         shell: bash
@@ -30,7 +32,7 @@ jobs:
           # is bumped by the release-please PR itself before the matching tag
           # is created, so checking the current version here would re-block
           # every release after the first one forever.
-          if git ls-remote --tags origin | grep -Eq 'refs/tags/v[0-9]+\.[0-9]+\.[0-9]+$'; then
+          if git tag -l | grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$'; then
             echo "ready=true" >> "$GITHUB_OUTPUT"
           else
             echo "ready=false" >> "$GITHUB_OUTPUT"
