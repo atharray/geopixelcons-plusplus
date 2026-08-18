@@ -6,7 +6,8 @@ import { dirname, join } from 'node:path';
 import test from 'node:test';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const libraryArtifact = join(root, '..', 'geopixelcons-library', 'dist', 'geopixelcons-library.js');
+const libraryRoot = join(root, '..', 'geopixelcons-library');
+const libraryArtifact = join(libraryRoot, 'dist', 'geopixelcons-library.js');
 const requireUrl = JSON.parse(readFileSync(join(root, 'library.require.json'), 'utf8')).url;
 const packageVersion = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')).version;
 
@@ -35,7 +36,12 @@ test('keeps the tracked userscript artifact version aligned with package.json', 
 
 test('ships the reviewed library pin as the default build input', async () => {
     assert.match(requireUrl, /^https:\/\/cdn\.jsdelivr\.net\/gh\/atharray\/geopixelcons-library@v\d+\.\d+\.\d+(?:-[A-Za-z0-9-]+)?\/dist\/geopixelcons-library\.js#sha256-[A-Za-z0-9+/]+={0,2}$/);
-    if (existsSync(libraryArtifact)) {
+    const pinnedTag = requireUrl.match(/@([^/]+)\/dist\//)?.[1];
+    const currentTag = spawnSync('git', ['describe', '--exact-match', '--tags', 'HEAD'], {
+        cwd: libraryRoot,
+        encoding: 'utf8',
+    });
+    if (existsSync(libraryArtifact) && currentTag.status === 0 && currentTag.stdout.trim() === pinnedTag) {
         const crypto = await import('node:crypto');
         const localSri = `sha256-${crypto.createHash('sha256').update(readFileSync(libraryArtifact)).digest('base64')}`;
         assert.equal(requireUrl.split('#')[1], localSri);
