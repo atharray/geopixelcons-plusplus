@@ -2,7 +2,7 @@
 // @name         GeoPixelcons++
 // @namespace    http://tampermonkey.net/
 // x-release-please-start-version
-// @version      2.0.7
+// @version      2.0.8
 // x-release-please-end
 // @description  Unified GeoPixels enhancement suite - by Pixelcons
 // @author       ariapokoteng, Manako, D.V.H., JainIlluverii
@@ -24,7 +24,7 @@
     'use strict';
 
     // x-release-please-start-version
-    const VERSION = '2.0.7';
+    const VERSION = '2.0.8';
     // x-release-please-end
     const library = typeof GeoPixelconsLibrary !== 'undefined'
         ? GeoPixelconsLibrary
