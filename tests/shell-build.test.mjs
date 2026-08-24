@@ -24,6 +24,7 @@ test('builds only with an immutable SRI-pinned library URL', () => {
     assert.match(script, new RegExp(`@require\\s+${requireUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`));
     assert.match(script, /GeoPixelconsLibrary\.boot/);
     assert.match(script, /typeof GeoPixelconsLibrary/);
+    assert.match(script, /^\/\/ @grant\s+GM_download$/m);
     assert.doesNotThrow(() => new Function(script));
 });
 

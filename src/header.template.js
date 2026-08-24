@@ -9,6 +9,7 @@
 // @match        *://geopixels.net/*
 // @match        *://*.geopixels.net/*
 // @require      __LIBRARY_REQUIRE_URL__
+// @grant        GM_download
 // @grant        GM_xmlhttpRequest
 // @grant        GM_setValue
 // @grant        GM_getValue
