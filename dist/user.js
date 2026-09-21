@@ -5,7 +5,7 @@
 // @version      2.0.18
 // x-release-please-end
 // @description  Unified GeoPixels enhancement suite - by Pixelcons
-// @author       ariapokoteng, Manako, D.V.H., JainIlluverii
+// @author       ariapokoteng, Manako, D.V.H., JainIlluverii, September
 // @match        *://geopixels.net/*
 // @match        *://*.geopixels.net/*
 // @require      https://cdn.jsdelivr.net/gh/atharray/geopixelcons-library@v2.17.0/dist/geopixelcons-library.js#sha256-DAjV1IETN3C8bNAiw3XZo6K6+5bQtNtYwTz4AqOxM5s=
