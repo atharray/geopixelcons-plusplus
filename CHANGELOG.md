@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.19](https://github.com/atharray/geopixelcons-plusplus/compare/v2.0.18...v2.0.19) (2026-09-21)
+
+
+### Bug Fixes
+
+* **shell:** credit September as a contributor ([#50](https://github.com/atharray/geopixelcons-plusplus/issues/50)) ([b262bce](https://github.com/atharray/geopixelcons-plusplus/commit/b262bce361a77e8664960e807b5bf342f0f72090))
+
 ## [2.0.18](https://github.com/atharray/geopixelcons-plusplus/compare/v2.0.17...v2.0.18) (2026-09-21)
 
 
