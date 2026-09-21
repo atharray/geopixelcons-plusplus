@@ -5,7 +5,7 @@
 // @version      __VERSION__
 // x-release-please-end
 // @description  Unified GeoPixels enhancement suite - by Pixelcons
-// @author       ariapokoteng, Manako, D.V.H., JainIlluverii
+// @author       ariapokoteng, Manako, D.V.H., JainIlluverii, September
 // @match        *://geopixels.net/*
 // @match        *://*.geopixels.net/*
 // @require      __LIBRARY_REQUIRE_URL__
