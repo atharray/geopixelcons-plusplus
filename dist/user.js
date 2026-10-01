@@ -8,7 +8,7 @@
 // @author       ariapokoteng, Manako, D.V.H., JainIlluverii, September
 // @match        *://geopixels.net/*
 // @match        *://*.geopixels.net/*
-// @require      https://cdn.jsdelivr.net/gh/atharray/geopixelcons-library@v2.17.0/dist/geopixelcons-library.js#sha256-DAjV1IETN3C8bNAiw3XZo6K6+5bQtNtYwTz4AqOxM5s=
+// @require      https://cdn.jsdelivr.net/gh/atharray/geopixelcons-library@v2.18.0/dist/geopixelcons-library.js#sha256-NZBuc3qvTfiGl5HOvJ6hrN+cZNrro+JNUGPhOou0aZg=
 // @grant        GM_download
 // @grant        GM_xmlhttpRequest
 // @grant        GM_setValue
